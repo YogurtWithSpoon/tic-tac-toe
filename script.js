@@ -11,11 +11,26 @@ function init(){
             event.target.innerHTML = '<i class="far fa-circle o element"></i>'
             }
         },
+        step: function(){
+            let field;
+            let opField;
+            if(logic.status == 'cross'){
+                field = document.querySelector('.cross > .step');
+                opField = document.querySelector('.circle > .step');
+            } else{
+                field = document.querySelector('.circle > .step')
+                opField = document.querySelector('.cross > .step');
+            }
+            field.style.display = "none";
+            opField.style.display = 'inline-block'
+        },
         clearAll:function(){
             const fields = document.querySelectorAll('td');
             for(field of fields){
                 field.innerHTML = '';
             }
+            document.querySelector('.cross > .step').style.display = 'inline-block';
+            document.querySelector('.circle > .step').style.display = 'none';
         },
         winner:function(winner){
             const result = document.querySelector('.result');
@@ -45,6 +60,7 @@ function init(){
         },
         makeStep: function(event){
             const fieldId = event.target.id;
+            display.step();
             if(this.field[fieldId]==''){ 
                 this.field[fieldId] = this.status;
 

@@ -59,6 +59,14 @@ td{
     width:100%;
     height:100%;
 }
+ 
+.step{
+    display:inline-block;
+    width:1em;
+    height:1em;
+    border-radius: 100%;
+    background:rgb(0, 222, 15);
+}
 
 .x{
     color:red;
